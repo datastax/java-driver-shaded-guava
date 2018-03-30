@@ -23,6 +23,8 @@
   <version>24.1-jre</version>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
+  <description>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</description>
+  <url>https://github.com/datastax/java-driver-shaded-guava</url>
 
   <dependencies>
     <dependency>
