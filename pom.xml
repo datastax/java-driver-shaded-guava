@@ -15,14 +15,12 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.datastax.oss</groupId>
   <artifactId>java-driver-shaded-guava</artifactId>
-  <version>24.1-jre-SNAPSHOT</version>
+  <version>24.1-jre</version>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
 
@@ -141,7 +139,7 @@
     <developerConnection>scm:git:git@github.com:datastax/java-driver-shaded-guava.git
     </developerConnection>
     <url>https://github.com/datastax/java-driver-shaded-guava</url>
-    <tag>HEAD</tag>
+    <tag>24.1-jre</tag>
   </scm>
   <developers>
     <developer>
