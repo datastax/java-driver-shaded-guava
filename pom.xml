@@ -22,7 +22,7 @@
 
   <groupId>com.datastax.oss</groupId>
   <artifactId>java-driver-shaded-guava</artifactId>
-  <version>24.1-jre</version>
+  <version>24.1-jre-SNAPSHOT</version>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
 
@@ -30,7 +30,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>${project.version}</version>
+      <version>24.1-jre</version>
     </dependency>
   </dependencies>
 
