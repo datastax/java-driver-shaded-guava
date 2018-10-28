@@ -20,7 +20,7 @@
 
   <groupId>com.datastax.oss</groupId>
   <artifactId>java-driver-shaded-guava</artifactId>
-  <version>25.2-jre-SNAPSHOT</version>
+  <version>27.0-jre-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
@@ -35,7 +35,7 @@
            0. Change the version of the module to match the guava version.
            1. Update the Export-Package and Import-Package elements in maven-bundle-plugin to match the values in the MANIFEST
               for the version of guava being upgraded to. -->
-      <version>25.1-jre</version>
+      <version>27.0-jre</version>
     </dependency>
   </dependencies>
 
@@ -129,7 +129,8 @@
               com.datastax.oss.driver.shaded.guava.common.net;version="${project.version}";uses:="com.datastax.oss.driver.shaded.guava.common.base,com.datastax.oss.driver.shaded.guava.common.collect,com.datastax.oss.driver.shaded.guava.common.escape",
               com.datastax.oss.driver.shaded.guava.common.primitives;version="${project.version}";uses:="com.datastax.oss.driver.shaded.guava.common.base",
               com.datastax.oss.driver.shaded.guava.common.reflect;version="${project.version}";uses:="com.datastax.oss.driver.shaded.guava.common.collect,com.datastax.oss.driver.shaded.guava.common.io",
-              com.datastax.oss.driver.shaded.guava.common.util.concurrent;version="${project.version}";uses:="com.datastax.oss.driver.shaded.guava.common.base,com.datastax.oss.driver.shaded.guava.common.collect",
+              com.datastax.oss.driver.shaded.guava.common.util.concurrent;version="${project.version}";uses:="com.datastax.oss.driver.shaded.guava.common.base,com.datastax.oss.driver.shaded.guava.common.collect,com.datastax.oss.driver.shaded.guava.common.util.concurrent.internal",
+              com.datastax.oss.driver.shaded.guava.common.util.concurrent.internal;version="${project.version}",
               com.datastax.oss.driver.shaded.guava.common.xml;version="${project.version}";uses:="com.datastax.oss.driver.shaded.guava.common.escape"
             </Export-Package>
             <Import-Package>
