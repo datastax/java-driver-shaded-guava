@@ -15,7 +15,9 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.datastax.oss</groupId>
@@ -24,7 +26,8 @@
   <packaging>bundle</packaging>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
-  <description>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</description>
+  <description>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®
+  </description>
   <url>https://github.com/datastax/java-driver-shaded-guava</url>
 
   <dependencies>
@@ -67,17 +70,44 @@
         </executions>
       </plugin>
       <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.1.1</version>
         <executions>
           <execution>
-            <id>empty-javadoc-jar</id>
+            <id>unpack-shaded-sources</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.datastax.oss</groupId>
+                  <artifactId>java-driver-shaded-guava</artifactId>
+                  <version>${project.version}</version>
+                  <type>jar</type>
+                  <classifier>sources</classifier>
+                  <outputDirectory>${project.build.directory}/shaded-sources</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-shaded-javadocs</id>
             <goals>
               <goal>jar</goal>
             </goals>
             <configuration>
-              <classifier>javadoc</classifier>
-              <classesDirectory>${basedir}/src/main/javadoc</classesDirectory>
+              <verbose>false</verbose>
+              <quiet>true</quiet>
+              <doclint>none</doclint>
+              <sourcepath>${project.build.directory}/shaded-sources</sourcepath>
             </configuration>
           </execution>
         </executions>
