@@ -20,7 +20,7 @@
 
   <groupId>com.datastax.oss</groupId>
   <artifactId>java-driver-shaded-guava</artifactId>
-  <version>25.1-jre-graal-sub-1</version>
+  <version>25.1-jre-graal-sub-1-SNAPSHOT</version>
   <packaging>bundle</packaging>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
