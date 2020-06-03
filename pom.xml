@@ -27,6 +27,10 @@
   <description>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</description>
   <url>https://github.com/datastax/java-driver-shaded-guava</url>
 
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>com.google.guava</groupId>
