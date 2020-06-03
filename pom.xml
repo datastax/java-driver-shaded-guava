@@ -20,7 +20,7 @@
 
   <groupId>com.datastax.oss</groupId>
   <artifactId>java-driver-shaded-guava</artifactId>
-  <version>25.2-jre-SNAPSHOT</version>
+  <version>25.1-jre-graal-sub-1</version>
   <packaging>bundle</packaging>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
@@ -37,10 +37,20 @@
               for the version of guava being upgraded to. -->
       <version>25.1-jre</version>
     </dependency>
+    <dependency>
+      <groupId>org.graalvm.nativeimage</groupId>
+      <artifactId>svm</artifactId>
+      <version>20.0.0</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
+      </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
         <version>3.0.0</version>
@@ -112,6 +122,7 @@
         <configuration>
           <instructions>
             <Bundle-SymbolicName>com.datastax.oss.driver.shaded.guava</Bundle-SymbolicName>
+            <Private-Package>com.google.common.primitives;-split-package:=merge-first</Private-Package>
             <!-- Export-Package and Import-Package must be declared explicitly since the maven-bundle-plugin executes before maven-shade-plugin, so the guava classes aren't present at this time.
                  Note that these should match the specifications from the MANIFEST.mf file of the guava jar this jar will be based on. -->
             <Export-Package>
