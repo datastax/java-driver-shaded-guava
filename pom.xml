@@ -20,7 +20,7 @@
 
   <groupId>com.datastax.oss</groupId>
   <artifactId>java-driver-shaded-guava</artifactId>
-  <version>25.1-jre-graal-sub-2-SNAPSHOT</version>
+  <version>32.0.1-jre-graal-sub-1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Shaded Guava artifact for use in the DataStax Java driver for Apache Cassandra®</name>
@@ -35,7 +35,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>25.1-jre</version>
+      <version>32.0.1-jre</version>
       <exclusions>
         <exclusion>
           <groupId>com.google.code.findbugs</groupId>
@@ -50,12 +50,8 @@
           <artifactId>error_prone_annotations</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>com.google.j2objc</groupId>
-          <artifactId>j2objc-annotations</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>animal-sniffer-annotations</artifactId>
+          <groupId>com.google.guava</groupId>
+          <artifactId>listenablefuture</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -92,6 +88,8 @@
                 <includes>
                   <include>com.datastax.oss:java-driver-shaded-guava</include>
                   <include>com.google.guava:guava</include>
+                  <include>com.google.guava:failureaccess</include>
+                  <include>com.google.j2objc:j2objc-annotations</include>
                 </includes>
               </artifactSet>
               <relocations>
